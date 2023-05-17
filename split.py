@@ -25,12 +25,16 @@ def split(file_name, n):
     reader = PdfReader(file_name)
     num_pages = len(reader.pages)
 
-    page_size = num_pages // n
+    page_size = (num_pages // n) + 1
+    cursor = 0
 
     for i in range(n):
         writer = PdfWriter()
         for j in range(page_size):
+            if cursor == num_pages:
+                break
             writer.add_page(reader.pages[j + i * page_size])
+            cursor = cursor + 1
 
         with open(f'output{i + 1}.pdf', 'wb') as out:
             writer.write(out)
