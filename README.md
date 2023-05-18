@@ -26,7 +26,7 @@ The function takes two arguments: the name of the PDF file and the number of par
 For example, to split a PDF file named input.pdf into three parts, you would use the following code:
 
 ```
-python pdf_utils.py input.pdf extract 1,20
+python pdf_utils.py cert.pdf split 3 
 ```
 
 
